@@ -1,9 +1,9 @@
 import {useFetchNote} from './../hooks/useFetchNote';
+import Note from './Note';
 
 function NoteList(){
 
-    const {notes: notes, loading} = useFetchNote();  
-    console.log(notes);
+    const {notes, loading} = useFetchNote();  
 
     return(
 	<>
@@ -12,14 +12,16 @@ function NoteList(){
 		{
 		    notes.map(item => {
 			return(
-			    <div className="card" key={item.id+"2"}>
-				<h1>{item.name}</h1>
-			    </div>
+			    <Note
+				key={item._id}
+				id={item._id}
+				name={item.name}  
+				description={item.description}  
+				status={item.status}
+			    />
 			)	
-		    
 		    }) 
 		}
-
 	    </div>
 	</>
     );
