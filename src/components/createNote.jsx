@@ -1,5 +1,6 @@
 import {useRef, useState} from 'react';
 import insertNote from '../helpers/insertNote';
+import Fade from 'react-reveal/Fade';
 
 function CreateNote(){
     // http://localhost:3000/Olstertecn11/ChurchApp#/
@@ -12,7 +13,6 @@ function CreateNote(){
 
     const handleClick = ()=>{
 	const new_description = description.current.value;
-	console.log(description.current.value);
 	const new_name = name.current.value;
 	const new_check = check.current.checked;
 	const result = insertNote({
@@ -35,7 +35,7 @@ function CreateNote(){
 
 
     return(
-	<div className="container">
+	<Fade className="container" clear>
 		<div className="card-body col-md-5 mx-auto mt-4 border">
 		    <h1 className="card-title text-center mt-2">Nueva Nota</h1>
 		    <input type="text" ref={name} className="form-control mt-2" placeholder="Nombre de la nota"/>
@@ -56,7 +56,7 @@ function CreateNote(){
 			</div>
 		    </div>
 		</div>
-	</div>
+	</Fade>
     )
 }
 
